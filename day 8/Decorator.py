@@ -1,0 +1,14 @@
+# Decorator definition
+def admin_only(func):
+    def wrapper(username):
+        if username == "admin":
+            func(username)
+        else:
+            print("Access Denied")
+    return wrapper
+
+
+# Apply decorator
+@admin_only
+def dashboard(username):
+    print("Welcome to Admin Dashboard!")
